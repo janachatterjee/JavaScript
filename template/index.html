@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image" href="https://pngimg.com/uploads/mars_planet/mars_planet_PNG13.png">
+    <title>Mission to Mars</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="text-white" style="background-color:black;">
+    <div class="container">
+        <div class="jumbotron text-center" style="background-image: url(http://en.es-static.us/upl/2018/11/mars-landing-curiosity-artist-e1543073738523.jpeg); background-size: 100%; height: 100%;">
+            <h1 class="display-4">Mission to Mars</h1>      
+        </div>
+        <a class="btn btn-lg text-white" style="display:block; margin: 0 auto; background-color: rgb(47, 55, 56) " href="/scrape" role="button"> Click for a Scrapersize</a>
+        <div>
+                <h3>Today's News on Mars</h3>
+                <h4>{{mars.date}}</h4>
+                <h4> {{ mars.title }}</h4>   
+                <p>{{ mars.ptext }}</p>
+        </div>
+<!-- Image -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h3>Today's Featured Image</h3>
+                    <img src="{{ mars_info.featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Today's Featured Image">
+                </div>
+
+<!-- Weather -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body text-white bg-dark">
+                            <h6 class="card-title">Mars Twitter Weather</h6>
+                            <p class="card-text">{{ mars.marstweet }}</p>
+                        </div>
+
+                    </div>
+
+<!-- Facts -->
+                    <br>
+                    <h3>Fun Facts</h3>
+                    <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
+                        {{ mars.facts | safe}}
+                    </div>
+                </div> <!-- col4 -->
+            </div><!-- Row -->
+        </div><!-- Container -->
+
+<!-- Hemispheres -->
+<div class="container-fluid">
+
+      <h2>🌟Let's get Hemispheric, Mars Style 🌟</h2>
+
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{{mars.hems[0]['img_url']}}" alt="Hemisphere 1" style="width:400px;height:400px;border:0;">
+          <h3>{{mars.hems[0]['title']}}</h3>
+        </div>
+        <div class="col-md-6">
+          <img src="{{mars.hems[1]['img_url']}}" alt="Hemisphere 2" style="width:400px;height:400px;border:0;">
+          <h3>{{mars.hems[1]['title']}}</h3>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{{mars.hems[3]['img_url']}}" alt="Hemisphere 3" style="width:400px;height:400px;border:0;">
+          <h3>{{mars.hems[3]['title']}}</h3>
+        </div>
+        <div class="col-md-6">
+          <img src="{{mars.[1]['img_url']}}" alt="Hemisphere 4" style="width:400px;height:400px;border:0;">
+          <h3>{{mars.hems[4]['title']}}</h3>
+        </div>
+      </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
+
